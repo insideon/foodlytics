@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
@@ -97,7 +97,7 @@ export default function SurveyTakePage() {
       case 'multiple_choice':
         return (
           <RadioGroup
-            value={answers[currentQuestion.id]}
+            value={(answers[currentQuestion.id] as string) || ''}
             onValueChange={handleAnswer}
             className="space-y-3"
           >
@@ -119,9 +119,9 @@ export default function SurveyTakePage() {
               <div key={option} className="flex items-center space-x-2">
                 <Checkbox
                   id={option}
-                  checked={answers[currentQuestion.id]?.includes(option)}
+                  checked={(answers[currentQuestion.id] as string[])?.includes(option)}
                   onCheckedChange={(checked) => {
-                    const current = answers[currentQuestion.id] || []
+                    const current = (answers[currentQuestion.id] as string[]) || []
                     handleAnswer(
                       checked ? [...current, option] : current.filter((o: string) => o !== option)
                     )
@@ -139,7 +139,7 @@ export default function SurveyTakePage() {
         return (
           <div className="space-y-4">
             <Slider
-              value={[answers[currentQuestion.id] || currentQuestion.min_value || 1]}
+              value={[(answers[currentQuestion.id] as number) || currentQuestion.min_value || 1]}
               onValueChange={(value) => handleAnswer(value[0])}
               min={currentQuestion.min_value || 1}
               max={currentQuestion.max_value || 5}
@@ -148,7 +148,9 @@ export default function SurveyTakePage() {
             />
             <div className="flex justify-between text-sm text-gray-600">
               <span>{currentQuestion.min_value || 1}</span>
-              <span className="font-semibold">선택: {answers[currentQuestion.id] || '미선택'}</span>
+              <span className="font-semibold">
+                선택: {(answers[currentQuestion.id] as number) || '미선택'}
+              </span>
               <span>{currentQuestion.max_value || 5}</span>
             </div>
             {currentQuestion.help_text && (
@@ -168,7 +170,7 @@ export default function SurveyTakePage() {
               >
                 <Star
                   className={`h-10 w-10 ${
-                    (answers[currentQuestion.id] || 0) >= star
+                    ((answers[currentQuestion.id] as number) || 0) >= star
                       ? 'fill-yellow-400 text-yellow-400'
                       : 'text-gray-300'
                   }`}
@@ -181,7 +183,7 @@ export default function SurveyTakePage() {
       case 'text':
         return (
           <Input
-            value={answers[currentQuestion.id] || ''}
+            value={(answers[currentQuestion.id] as string) || ''}
             onChange={(e) => handleAnswer(e.target.value)}
             placeholder={currentQuestion.placeholder}
             className="text-base"
@@ -191,7 +193,7 @@ export default function SurveyTakePage() {
       case 'textarea':
         return (
           <Textarea
-            value={answers[currentQuestion.id] || ''}
+            value={(answers[currentQuestion.id] as string) || ''}
             onChange={(e) => handleAnswer(e.target.value)}
             placeholder={currentQuestion.placeholder}
             className="min-h-32 text-base"
