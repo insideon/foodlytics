@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { PlusCircle, FileText, Users, BarChart3, Settings } from 'lucide-react'
+import { PlusCircle, FileText, Users, BarChart3 } from 'lucide-react'
 
 export default function AdminDashboard() {
   return (

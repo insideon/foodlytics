@@ -9,7 +9,6 @@ import * as z from 'zod'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import {
   Form,
   FormControl,
@@ -60,7 +59,7 @@ export default function LoginPage() {
       // 로그인 성공
       router.push('/survey')
       router.refresh()
-    } catch (err) {
+    } catch {
       setError('로그인 중 오류가 발생했습니다')
     } finally {
       setIsLoading(false)
@@ -81,7 +80,7 @@ export default function LoginPage() {
       if (error) {
         setError('소셜 로그인 중 오류가 발생했습니다')
       }
-    } catch (err) {
+    } catch {
       setError('로그인 중 오류가 발생했습니다')
     } finally {
       setIsLoading(false)

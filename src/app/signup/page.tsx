@@ -114,7 +114,7 @@ export default function SignupPage() {
       setTimeout(() => {
         router.push('/login')
       }, 3000)
-    } catch (err) {
+    } catch {
       setError('회원가입 중 오류가 발생했습니다')
     } finally {
       setIsLoading(false)
@@ -135,7 +135,7 @@ export default function SignupPage() {
       if (error) {
         setError('소셜 회원가입 중 오류가 발생했습니다')
       }
-    } catch (err) {
+    } catch {
       setError('회원가입 중 오류가 발생했습니다')
     } finally {
       setIsLoading(false)

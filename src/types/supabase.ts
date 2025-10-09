@@ -22,6 +22,7 @@ export type Database = {
       //     created_at?: string
       //   }
       // }
+      [key: string]: never
     }
     Views: {
       [_ in never]: never

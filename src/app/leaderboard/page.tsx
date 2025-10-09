@@ -3,9 +3,9 @@
 import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Trophy, Medal, Crown, TrendingUp, TrendingDown, Minus, Zap, Award } from 'lucide-react'
 
 // Mock data - 실제로는 Supabase에서 가져옴
@@ -108,13 +108,6 @@ export default function LeaderboardPage() {
     if (rank === 2) return <Medal className="h-6 w-6 text-gray-400" />
     if (rank === 3) return <Medal className="h-6 w-6 text-amber-600" />
     return <span className="text-lg font-bold text-gray-500">{rank}</span>
-  }
-
-  const getRankBadgeColor = (rank: number) => {
-    if (rank === 1) return 'bg-gradient-to-r from-yellow-400 to-yellow-500'
-    if (rank === 2) return 'bg-gradient-to-r from-gray-300 to-gray-400'
-    if (rank === 3) return 'bg-gradient-to-r from-amber-500 to-amber-600'
-    return 'bg-white'
   }
 
   const getRankChangeIcon = (change: number) => {

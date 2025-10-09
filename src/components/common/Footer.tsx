@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export function Footer() {
   return (
     <footer className="border-t bg-gray-50">
@@ -18,19 +20,19 @@ export function Footer() {
             <h3 className="mb-3 text-lg font-semibold">바로가기</h3>
             <ul className="space-y-2 text-sm text-gray-600">
               <li>
-                <a href="/survey" className="hover:text-blue-600">
+                <Link href="/survey" className="hover:text-blue-600">
                   설문 참여
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/leaderboard" className="hover:text-blue-600">
+                <Link href="/leaderboard" className="hover:text-blue-600">
                   리더보드
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/achievements" className="hover:text-blue-600">
+                <Link href="/achievements" className="hover:text-blue-600">
                   업적
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

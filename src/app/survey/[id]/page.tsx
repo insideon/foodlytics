@@ -62,11 +62,9 @@ const mockSurvey = {
 }
 
 export default function SurveyTakePage() {
-  const params = useParams()
   const router = useRouter()
   const [currentStep, setCurrentStep] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, any>>({})
-  const [rating, setRating] = useState(0)
+  const [answers, setAnswers] = useState<Record<string, unknown>>({})
 
   const survey = mockSurvey
   const currentQuestion = survey.questions[currentStep]
@@ -90,7 +88,7 @@ export default function SurveyTakePage() {
     router.push('/survey/complete')
   }
 
-  const handleAnswer = (value: any) => {
+  const handleAnswer = (value: string | number | string[] | boolean) => {
     setAnswers({ ...answers, [currentQuestion.id]: value })
   }
 

@@ -48,7 +48,7 @@ export interface SurveyQuestion {
   max_value: number | null
   placeholder: string | null
   help_text: string | null
-  metadata: Record<string, any> | null
+  metadata: Record<string, unknown> | null
   created_at: string
   updated_at: string
 }
@@ -62,7 +62,7 @@ export interface SurveyResponse {
   completed_at: string | null
   is_completed: boolean
   completion_time_seconds: number | null
-  device_info: Record<string, any> | null
+  device_info: Record<string, unknown> | null
   created_at: string
 }
 
@@ -73,7 +73,7 @@ export interface SurveyAnswer {
   answer_text: string | null
   answer_number: number | null
   answer_array: string[] | null
-  answer_json: Record<string, any> | null
+  answer_json: Record<string, unknown> | null
   image_url: string | null
   confidence_score: number | null
   sentiment_score: number | null
@@ -139,5 +139,5 @@ export interface CreateQuestionForm {
   max_value?: number
   placeholder?: string
   help_text?: string
-  metadata?: Record<string, any>
+  metadata?: Record<string, unknown>
 }
