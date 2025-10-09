@@ -253,8 +253,8 @@ MIT License
 
 ## 👥 제작자
 
-- 개발: Your Team
+- 개발: BANBAN
 
 ## 📞 문의
 
-이메일: support@foodlytics.com
+이메일: banban@loofend.com
