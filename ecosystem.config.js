@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'foodlytics',
-      script: 'node_modules/.bin/next',
+      script: 'pnpm',
       args: 'start',
       cwd: '/var/www/foodlytics',
       instances: 1,
