@@ -1,12 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import dynamic from 'next/dynamic'
 import './globals.css'
-import { Footer } from '@/components/common/Footer'
-
-const Navbar = dynamic(() => import('@/components/common/Navbar').then((mod) => mod.Navbar), {
-  ssr: false,
-})
+import { ClientLayout } from '@/components/common/ClientLayout'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,15 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   )
