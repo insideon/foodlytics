@@ -6,4 +6,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm use 22 > /dev/null 2>&1 || true
 
-pnpm exec lint-staged
+npx lint-staged

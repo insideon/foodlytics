@@ -73,7 +73,7 @@ const weeklyLeaderboard = [
     points: 850 - i * 40,
     level: 11 - Math.floor(i / 3),
     surveysCompleted: 16 - i,
-    rankChange: Math.floor(Math.random() * 7) - 3,
+    rankChange: ((i + 1) % 5) - 2,
     achievements: 7 - Math.floor(i / 3),
   })),
 ]
