@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
@@ -11,6 +12,11 @@ import { Trophy, User, LayoutDashboard } from 'lucide-react'
 export function Navbar() {
   const pathname = usePathname()
   const { profile } = useUserStore()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const isAdmin = pathname?.startsWith('/admin')
 
@@ -57,7 +63,11 @@ export function Navbar() {
 
         {/* User Profile */}
         <div className="flex items-center space-x-4">
-          {profile ? (
+          {!mounted ? (
+            <Button asChild size="sm">
+              <Link href="/login">로그인</Link>
+            </Button>
+          ) : profile ? (
             <>
               <div className="flex items-center space-x-2">
                 <Badge variant="secondary" className="font-semibold">
