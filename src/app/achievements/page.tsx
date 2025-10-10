@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
-import { Trophy, Star, Target, Flame, Calendar, CheckCircle } from 'lucide-react'
+import { Trophy, Star, CheckCircle } from 'lucide-react'
 
 const achievements = [
   {

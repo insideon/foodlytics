@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { Clock, Users, Award, ChevronRight } from 'lucide-react'
+import { formatNumber } from '@/lib/utils'
 
 // Mock data - 실제로는 Supabase에서 가져옴
 const surveys = [
@@ -123,7 +124,7 @@ export default function SurveyListPage() {
                   </div>
                   <div className="flex items-center gap-1">
                     <Users className="h-4 w-4" />
-                    <span>{survey.responses_count.toLocaleString()}명 참여</span>
+                    <span>{formatNumber(survey.responses_count)}명 참여</span>
                   </div>
                 </div>
 

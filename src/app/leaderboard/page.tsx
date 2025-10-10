@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Trophy, Medal, Crown, TrendingUp, TrendingDown, Minus, Zap, Award } from 'lucide-react'
+import { formatNumber } from '@/lib/utils'
 
 // Mock data - 실제로는 Supabase에서 가져옴
 const weeklyLeaderboard = [
@@ -207,7 +208,7 @@ export default function LeaderboardPage() {
                       Lv.{weeklyLeaderboard[1].level}
                     </Badge>
                     <p className="text-lg font-bold text-gray-600">
-                      {weeklyLeaderboard[1].points.toLocaleString()}P
+                      {formatNumber(weeklyLeaderboard[1].points)}P
                     </p>
                   </div>
 
@@ -222,7 +223,7 @@ export default function LeaderboardPage() {
                     <p className="mb-1 text-center font-bold">{weeklyLeaderboard[0].username}</p>
                     <Badge className="mb-1 bg-yellow-500">Lv.{weeklyLeaderboard[0].level}</Badge>
                     <p className="text-xl font-bold text-yellow-600">
-                      {weeklyLeaderboard[0].points.toLocaleString()}P
+                      {formatNumber(weeklyLeaderboard[0].points)}P
                     </p>
                   </div>
 
@@ -241,7 +242,7 @@ export default function LeaderboardPage() {
                       Lv.{weeklyLeaderboard[2].level}
                     </Badge>
                     <p className="text-lg font-bold text-amber-700">
-                      {weeklyLeaderboard[2].points.toLocaleString()}P
+                      {formatNumber(weeklyLeaderboard[2].points)}P
                     </p>
                   </div>
                 </div>
@@ -277,7 +278,7 @@ export default function LeaderboardPage() {
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="text-right">
-                          <p className="font-bold">{user.points.toLocaleString()}P</p>
+                          <p className="font-bold">{formatNumber(user.points)}P</p>
                           {getRankChangeIcon(user.rankChange)}
                         </div>
                       </div>
@@ -312,7 +313,7 @@ export default function LeaderboardPage() {
                 <div className="space-y-2 rounded-lg bg-white p-4">
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-600">포인트</span>
-                    <span className="font-bold">{myRank.points.toLocaleString()}P</span>
+                    <span className="font-bold">{formatNumber(myRank.points)}P</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm text-gray-600">완료한 설문</span>
