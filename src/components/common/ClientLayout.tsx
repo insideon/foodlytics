@@ -12,9 +12,11 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
   }, [])
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col" suppressHydrationWarning>
       {mounted && <Navbar />}
-      <main className="flex-1">{children}</main>
+      <main className="flex-1" suppressHydrationWarning>
+        {children}
+      </main>
       <Footer />
     </div>
   )
