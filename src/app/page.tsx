@@ -11,13 +11,12 @@ export default function HomePage() {
     <div className="bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">
-        <Badge variant="secondary" className="mb-4">
+        <Badge variant="secondary" className="mb-6">
           🎉 AI 기반 음식 피드백 플랫폼
         </Badge>
-        <h1 className="mb-6 text-5xl font-bold tracking-tight">
-          음식에 대한 의견을 공유하고
-          <br />
-          <span className="text-blue-600">보상을 받으세요</span>
+        <h1 className="mb-8 text-6xl tracking-wide">
+          <span className="mb-2 block font-bold">음식에 대한 의견을 공유하고</span>
+          <span className="text-5xl font-semibold text-blue-600">보상을 받으세요</span>
         </h1>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">
           간단한 설문조사에 참여하여 포인트를 획득하고, 레벨을 올리며, 다양한 업적을 달성하세요.
@@ -25,9 +24,7 @@ export default function HomePage() {
         </p>
         <div className="flex items-center justify-center gap-4">
           <Button asChild size="lg" className="text-lg">
-            <Link href="/survey">
-              지금 시작하기 <ChevronRight className="ml-2 h-5 w-5" />
-            </Link>
+            <Link href="/survey">지금 시작하기</Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="text-lg">
             <Link href="/about">자세히 알아보기</Link>

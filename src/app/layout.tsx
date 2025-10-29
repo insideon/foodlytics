@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Noto_Sans, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ClientLayout } from '@/components/common/ClientLayout'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const notoSans = Noto_Sans({
+  variable: '--font-noto-sans',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 })
 
 const geistMono = Geist_Mono({
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${notoSans.variable} ${geistMono.variable} antialiased`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
